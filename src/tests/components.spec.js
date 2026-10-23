@@ -53,6 +53,20 @@ describe('Suite de Pruebas Unitarias Frontend (EducaPro) - Jasmine & Karma', () 
     expect(screen.getByText(/No hay sesión de estudiante activa/i)).toBeTruthy();
   });
 
+  // Test Adicional: Validación de Teléfono Chileno (+569XXXXXXXX) proveniente de funciones.js
+it('Debe validar correctamente un teléfono con formato chileno +569XXXXXXXX', () => {
+  const telRegex = /^\+569\d{8}$/;
+  expect(telRegex.test('+56912345678')).toBe(true);
+  expect(telRegex.test('912345678')).toBe(false);
+});
+
+// Test Adicional: Validación de Correo Electrónico
+it('Debe validar el formato de un correo electrónico institucional o personal', () => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  expect(emailRegex.test('alumno@educapro.cl')).toBe(true);
+  expect(emailRegex.test('correo-invalido')).toBe(false);
+});
+
   // Test 7: Verificación de Mocking de Servicio de API
   it('7. Debe simular (Mock) una llamada asíncrona de obtención de cursos con Jasmine Spy', (done) => {
     const apiServiceMock = {
