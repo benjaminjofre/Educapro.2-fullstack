@@ -13,7 +13,6 @@ export default function Estadisticas() {
 
   const [totalMatriculas, setTotalMatriculas] = useState(3200);
 
-  // Exportar datos a Excel equivalente a descargarExcelCalificaciones() en funciones.js
   const exportarAExcel = () => {
     if (!reporteCursos || reporteCursos.length === 0) {
       alert("No hay datos para exportar a Excel.");

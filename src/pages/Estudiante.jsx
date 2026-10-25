@@ -20,7 +20,7 @@ export default function Estudiante() {
       <Container className="my-5">
         <Card className="shadow-sm border-0 rounded-3 p-5 text-center bg-white">
           <h2 className="h4 fw-bold text-dark mb-2">No tienes cursos activos</h2>
-          <p className="text-muted mb-4">Actualmente no estás inscrito en ningún curso[cite: 3].</p>
+          <p className="text-muted mb-4">Actualmente no estás inscrito en ningún curso.</p>
           <div>
             <Button as={Link} to="/contacto" variant="primary" size="lg" className="fw-semibold px-4">
               Inscribirme a un Curso
@@ -36,7 +36,7 @@ export default function Estudiante() {
       <Container className="my-5">
         <Card className="shadow-sm border-0 rounded-3 p-5 text-center bg-white">
           <h2 className="h4 fw-bold text-dark mb-2">Inscripción Pendiente</h2>
-          <p className="text-muted mb-4">Tienes una inscripción pendiente de pago[cite: 3].</p>
+          <p className="text-muted mb-4">Tienes una inscripción pendiente de pago.</p>
           <div>
             <Button as={Link} to="/pago" variant="primary" size="lg" className="fw-semibold px-4">
               Ir a Pagar Matrícula
@@ -54,7 +54,7 @@ export default function Estudiante() {
           <div>
             <h1 className="h3 fw-bold text-dark mb-1">Bienvenido(a), {alumno.nombre}</h1>
             <p className="text-muted mb-0">
-              RUT: <strong>{alumno.rut}</strong> | Estado: <Badge bg="success">Matriculado / En Curso</Badge>[cite: 3]
+              RUT: <strong>{alumno.rut}</strong> | Estado: <Badge bg="success">Matriculado / En Curso</Badge>
             </p>
           </div>
           <Button onClick={cerrarSesion} variant="outline-danger" size="sm">
@@ -67,7 +67,7 @@ export default function Estudiante() {
         <h2 className="h5 fw-bold text-dark mb-3">Mi Asignatura Activa</h2>
         <h3 className="h4 text-primary fw-bold mb-1">{alumno.curso}</h3>
         <p className="text-muted mb-3">
-          Duración: 40 horas | Estado de Pago: <Badge bg="primary">Matrícula Pagada</Badge>[cite: 3]
+          Duración: 40 horas | Estado de Pago: <Badge bg="primary">Matrícula Pagada</Badge>
         </p>
         <ProgressBar animated now={10} label="10% Completado" style={{ height: '20px' }} />
       </Card>
@@ -76,13 +76,13 @@ export default function Estudiante() {
         <Col md={6}>
           <Card className="shadow-sm border-0 rounded-3 p-4 bg-white">
             <h3 className="h5 fw-bold text-dark mb-3">Mis Calificaciones</h3>
-            <p className="text-muted small">Aún no hay evaluaciones registradas para este periodo[cite: 3].</p>
+            <p className="text-muted small">Aún no hay evaluaciones registradas para este periodo.</p>
           </Card>
         </Col>
         <Col md={6}>
           <Card className="shadow-sm border-0 rounded-3 p-4 bg-white">
             <h3 className="h5 fw-bold text-dark mb-3">Asistencia Registrada</h3>
-            <p className="text-muted small">0% - Las clases inician próximamente[cite: 3].</p>
+            <p className="text-muted small">0% - Las clases inician próximamente.</p>
           </Card>
         </Col>
       </Row>

@@ -12,7 +12,6 @@ export default function Director() {
     <Container className="my-5">
       <h2 className="fw-bold text-dark mb-4">Reportes Estratégicos y Rendimiento Académico</h2>
 
-      {/* Indicadores Clave de Rendimiento (KPIs) */}
       <Row className="g-4 mb-5">
         <Col md={4}>
           <Card className="shadow-sm border-0 text-center p-3 h-100 bg-white">
@@ -43,7 +42,7 @@ export default function Director() {
         </Col>
       </Row>
 
-      {/* Tabla Eficiencia y Deserción por Área */}
+
       <Card className="shadow-sm border-0 rounded-3 p-4 bg-white">
         <h3 className="h5 fw-bold text-dark mb-3">Eficiencia de Cursos y Deserción</h3>
         <Table responsive striped hover className="align-middle">

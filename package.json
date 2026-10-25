@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "test": "karma start karma.conf.js --single-run"
+    "test": "vitest"
   },
   "dependencies": {
     "axios": "^1.20.0",

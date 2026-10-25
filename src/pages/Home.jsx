@@ -3,7 +3,7 @@ import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-// Datos por defecto para mostrar el catálogo inmediatamente
+
 const cursosIniciales = [
   { codigo: 'CRS001', nombre: 'Fundamentos de Programación', area: 'Tecnología', duracion: '40 horas', cuposSeccion: 25, totalAnual: 850, profesor: 'Juan López', precio: 250000, img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500' },
   { codigo: 'CRS002', nombre: 'Diseño Gráfico Digital', area: 'Diseño', duracion: '35 horas', cuposSeccion: 20, totalAnual: 600, profesor: 'María González', precio: 220000, img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500' },
@@ -13,11 +13,9 @@ const cursosIniciales = [
 ];
 
 export default function Home() {
-  // 1. Inicializamos con los cursos por defecto en lugar de un arreglo vacío []
   const [cursos, setCursos] = useState(cursosIniciales);
 
   useEffect(() => {
-    // 2. Intentamos conectar al servidor; si responde, actualizamos
     axios.get('http://localhost:5000/api/cursos')
       .then(res => {
         if (res.data && res.data.length > 0) setCursos(res.data);
@@ -29,7 +27,6 @@ export default function Home() {
 
   return (
     <Container className="my-5">
-      {/* Hero Section */}
       <div className="bg-light p-4 p-md-5 rounded-3 mb-5 border shadow-sm">
         <Row className="align-items-center g-4">
           <Col lg={7}>
@@ -61,7 +58,6 @@ export default function Home() {
         </Row>
       </div>
 
-      {/* Catálogo de Cursos */}
       <section id="catalogo">
         <div className="text-center mb-5">
           <h2 className="fw-bold text-dark display-6">Catálogo de Cursos Oficiales</h2>

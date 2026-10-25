@@ -6,7 +6,6 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
-// Base de datos simulada en memoria
 let cursos = [
   { codigo: 'CRS001', nombre: 'Fundamentos de Programación', area: 'Tecnología', duracion: '40 horas', cuposSeccion: 25, totalAnual: 850, profesor: 'Juan López', precio: 250000, img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500' },
   { codigo: 'CRS002', nombre: 'Diseño Gráfico Digital', area: 'Diseño', duracion: '35 horas', cuposSeccion: 20, totalAnual: 600, profesor: 'María González', precio: 220000, img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500' },
@@ -18,7 +17,6 @@ let cursos = [
 let inscripciones = [];
 let totalEstudiantesGlobal = 3200;
 
-// Endpoints API
 app.get('/api/cursos', (req, res) => res.json(cursos));
 
 app.post('/api/inscribir', (req, res) => {

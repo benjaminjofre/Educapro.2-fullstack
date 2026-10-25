@@ -45,7 +45,6 @@ export default function Coordinador() {
     <Container className="my-5">
       <h2 className="fw-bold text-dark mb-4">Panel de Control - Coordinador Académico</h2>
 
-      {/* Formulario de Asignación */}
       <Card className="shadow-sm border-0 rounded-3 p-4 mb-4 bg-white">
         <h3 className="h5 fw-bold text-primary mb-3">Asignación de Profesores a Cursos</h3>
         
@@ -95,7 +94,6 @@ export default function Coordinador() {
         </Form>
       </Card>
 
-      {/* Tabla de Programación Académica */}
       <Card className="shadow-sm border-0 rounded-3 p-4 bg-white">
         <h3 className="h5 fw-bold text-dark mb-3">Programación Académica de Cursos</h3>
         <Table responsive striped hover className="align-middle">

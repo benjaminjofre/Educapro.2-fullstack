@@ -33,7 +33,7 @@ export default function Contacto() {
     setValidated(true);
     setMensajeExito(true);
 
-    // Guardar en localStorage para conectar con el flujo de Pago y Portal Estudiante
+
     const alumno = {
       nombre: formData.nombre,
       rut: formData.rut,
@@ -44,7 +44,7 @@ export default function Contacto() {
     };
     localStorage.setItem('alumnoInscrito', JSON.stringify(alumno));
 
-    // Redirigir a la vista de pago tras guardar los datos
+
     setTimeout(() => {
       navigate('/pago');
     }, 1000);
@@ -65,7 +65,6 @@ export default function Contacto() {
 
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Row className="g-3">
-                {/* Nombre Completo */}
                 <Col md={6}>
                   <Form.Group controlId="txtNombre">
                     <Form.Label className="fw-semibold text-dark">Nombre Completo</Form.Label>
@@ -83,7 +82,6 @@ export default function Contacto() {
                   </Form.Group>
                 </Col>
 
-                {/* RUT Alumno/a */}
                 <Col md={6}>
                   <Form.Group controlId="txtRut">
                     <Form.Label className="fw-semibold text-dark">RUT Alumno/a</Form.Label>
@@ -101,7 +99,6 @@ export default function Contacto() {
                   </Form.Group>
                 </Col>
 
-                {/* Correo Electrónico */}
                 <Col md={6}>
                   <Form.Group controlId="txtEmail">
                     <Form.Label className="fw-semibold text-dark">Correo Electrónico</Form.Label>
@@ -119,7 +116,6 @@ export default function Contacto() {
                   </Form.Group>
                 </Col>
 
-                {/* Teléfono de Contacto */}
                 <Col md={6}>
                   <Form.Group controlId="txtTelefono">
                     <Form.Label className="fw-semibold text-dark">Teléfono de Contacto</Form.Label>
@@ -137,7 +133,6 @@ export default function Contacto() {
                   </Form.Group>
                 </Col>
 
-                {/* Curso a Inscribir */}
                 <Col xs={12}>
                   <Form.Group controlId="selectCurso">
                     <Form.Label className="fw-semibold text-dark">Curso a Inscribir</Form.Label>
@@ -160,7 +155,6 @@ export default function Contacto() {
                   </Form.Group>
                 </Col>
 
-                {/* Botón enviar */}
                 <Col xs={12} className="mt-4 text-end">
                   <Button type="submit" variant="primary" size="lg" className="px-4 py-2 fw-semibold fs-6">
                     Continuar al Pago de Matrícula

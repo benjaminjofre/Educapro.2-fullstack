@@ -35,11 +35,9 @@ export default function Pago() {
     }
 
     if (alumno) {
-      // 1. Actualizar estado de pago del alumno
       const alumnoActualizado = { ...alumno, pagado: true };
       localStorage.setItem('alumnoInscrito', JSON.stringify(alumnoActualizado));
 
-      // 2. Incrementar contador global de estudiantes
       let totalActual = parseInt(localStorage.getItem('totalEstudiantesGlobal')) || 3200;
       totalActual += 1;
       localStorage.setItem('totalEstudiantesGlobal', totalActual);
@@ -67,7 +65,6 @@ export default function Pago() {
               </Alert>
             ) : (
               <>
-                {/* Resumen de Inscripción */}
                 <Alert variant="info" className="mb-4">
                   <h5 className="fw-bold mb-2">Resumen de Inscripción</h5>
                   <p className="mb-1"><strong>Estudiante:</strong> {alumno.nombre}</p>
@@ -75,7 +72,6 @@ export default function Pago() {
                   <p className="mb-0"><strong>Curso:</strong> {alumno.curso}</p>
                 </Alert>
 
-                {/* Formulario de Pago */}
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
                   <Form.Group className="mb-3" controlId="txtTarjeta">
                     <Form.Label className="fw-semibold">Número de Tarjeta (Simulación)</Form.Label>

@@ -7,7 +7,6 @@ export default function AdminAuthGuard({ children }) {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  // Verifica si el administrador ya había iniciado sesión en la sesión actual
   useEffect(() => {
     const authStatus = sessionStorage.getItem('adminAuth');
     if (authStatus === 'true') {
@@ -18,7 +17,6 @@ export default function AdminAuthGuard({ children }) {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Credenciales de Administrador para pruebas
     if (email === 'admin@educapro.cl' && password === 'admin123') {
       sessionStorage.setItem('adminAuth', 'true');
       setIsAuthenticated(true);
@@ -33,7 +31,6 @@ export default function AdminAuthGuard({ children }) {
     setIsAuthenticated(false);
   };
 
-  // Si está autenticado, muestra el contenido de la página elegida
   if (isAuthenticated) {
     return (
       <>
@@ -48,7 +45,6 @@ export default function AdminAuthGuard({ children }) {
     );
   }
 
-  // Si NO está autenticado, solicita las credenciales
   return (
     <Container className="my-5">
       <Row className="justify-content-center">

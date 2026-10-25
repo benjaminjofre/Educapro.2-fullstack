@@ -1,13 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// Componente Navegador
+
 import NavigationBar from './components/NavigationBar';
 
-// Guard de Seguridad
-import AdminAuthGuard from './components/AdminAuthGuard';
 
-// Páginas
+import AdminAuthGuard from './components/AdminAuthGuard';
+import ProfesorAuthGuard from './components/ProfesorAuthGuard';
+
+
 import Home from './pages/Home';
 import Contacto from './pages/Contacto';
 import Pago from './pages/Pago';
@@ -27,11 +28,18 @@ export default function App() {
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/pago" element={<Pago />} />
         <Route path="/estudiante" element={<Estudiante />} />
-        <Route path="/profesor" element={<Profesor />} />
         <Route path="/estadisticas" element={<Estadisticas />} />
         <Route path="/director" element={<Director />} />
 
-        {/* --- Rutas Protegidas Exclusivas para el Administrador --- */}
+        <Route
+          path="/profesor"
+          element={
+            <ProfesorAuthGuard>
+              <Profesor />
+            </ProfesorAuthGuard>
+          }
+        />
+
         <Route
           path="/admin"
           element={
