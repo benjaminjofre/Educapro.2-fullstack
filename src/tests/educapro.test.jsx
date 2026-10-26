@@ -1,10 +1,9 @@
+import '@testing-library/jest-dom/vitest';
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import axios from 'axios';
 import { MemoryRouter } from 'react-router-dom';
-import '@testing-library/jest-dom/vitest';
-
 
 
 import CourseCard from '../components/CourseCard';
@@ -13,7 +12,7 @@ import Contacto from '../pages/Contacto';
 import ProfesorAuthGuard from '../components/ProfesorAuthGuard';
 import AdminAuthGuard from '../components/AdminAuthGuard';
 
-describe('Suite Oficial de 10 Pruebas Unitarias - EducaPro (Vitest + Testing Library)', () => {
+describe('Suite de 10 Pruebas Unitarias - EducaPro (Vitest + React Testing Library)', () => {
 
   beforeEach(() => {
     localStorage.clear();
@@ -21,8 +20,7 @@ describe('Suite Oficial de 10 Pruebas Unitarias - EducaPro (Vitest + Testing Lib
     vi.restoreAllMocks();
   });
 
-
-  it('1. Debe renderizar correctamente el título, código y precio formateado en CourseCard', () => {
+  it('1. Debe renderizar el título, código y precio formateado en CourseCard', () => {
     render(
       <CourseCard
         codigo="CRS001"
@@ -74,7 +72,6 @@ describe('Suite Oficial de 10 Pruebas Unitarias - EducaPro (Vitest + Testing Lib
     expect(screen.getByText(/Inscribirme/i)).toBeInTheDocument();
   });
 
-
   it('4. Debe cargar y mostrar el nombre y curso del estudiante matriculado guardado en localStorage', () => {
     const alumnoMock = {
       nombre: 'Juan Pérez',
@@ -93,7 +90,6 @@ describe('Suite Oficial de 10 Pruebas Unitarias - EducaPro (Vitest + Testing Lib
     expect(screen.getByText(/Bienvenido\(a\), Juan Pérez/i)).toBeInTheDocument();
     expect(screen.getByText(/12\.345\.678-K/i)).toBeInTheDocument();
   });
-
 
   it('5. Debe eliminar la inscripción de localStorage y actualizar el DOM al presionar "Cerrar / Borrar Inscripción"', () => {
     const alumnoMock = {
@@ -117,8 +113,7 @@ describe('Suite Oficial de 10 Pruebas Unitarias - EducaPro (Vitest + Testing Lib
     expect(screen.getByText(/No tienes cursos activos/i)).toBeInTheDocument();
   });
 
-
-  it('6. Debe activar la validación visual e impedir el envío si los campos obligatorios de inscripción están vacíos', () => {
+  it('6. Debe activar la validación visual e impedir el envío si los campos obligatorios están vacíos', () => {
     render(
       <MemoryRouter>
         <Contacto />
@@ -131,7 +126,6 @@ describe('Suite Oficial de 10 Pruebas Unitarias - EducaPro (Vitest + Testing Lib
     expect(screen.getByText(/Ingresa tu nombre completo\./i)).toBeInTheDocument();
     expect(screen.getByText(/Ingresa un RUT válido\./i)).toBeInTheDocument();
   });
-
 
   it('7. Debe rechazar el acceso al Portal Docente y mostrar error si las credenciales son incorrectas', () => {
     render(
@@ -153,7 +147,6 @@ describe('Suite Oficial de 10 Pruebas Unitarias - EducaPro (Vitest + Testing Lib
     expect(screen.queryByText('Contenido Protegido Docente')).not.toBeInTheDocument();
   });
 
-
   it('8. Debe permitir el acceso al Administrador cuando ingresa credenciales válidas y guardar la sesión', () => {
     render(
       <AdminAuthGuard>
@@ -173,7 +166,6 @@ describe('Suite Oficial de 10 Pruebas Unitarias - EducaPro (Vitest + Testing Lib
     expect(screen.getByTestId('admin-panel')).toBeInTheDocument();
     expect(sessionStorage.getItem('adminAuth')).toBe('true');
   });
-
 
   it('9. Debe simular (Mock) una respuesta asíncrona de Axios para la obtención del catálogo de cursos', async () => {
     const mockCursos = [
